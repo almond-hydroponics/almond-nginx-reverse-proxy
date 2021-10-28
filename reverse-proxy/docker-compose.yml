@@ -3,15 +3,15 @@ services:
   proxy:
     build: ./
     networks:
-      - site1
-      - site2
+      - api
+      - web
     ports:
       - "80:80"
 
 networks:
-  site1:
+  api:
     external:
-      name: site1_default
-  site2:
+      name: almond-be_app-network
+  web:
     external:
-      name: site2_default
+      name: almond-be_app-network
