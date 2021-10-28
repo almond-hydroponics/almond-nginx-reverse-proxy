@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    image: nginx:1.21
+    volumes:
+      - .:/usr/share/nginx/html/
+    expose:
+      - "80"
