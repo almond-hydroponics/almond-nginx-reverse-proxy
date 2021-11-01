@@ -1,0 +1,28 @@
+version: '3'
+services:
+  nginx-proxy:
+    container_name: nginx-proxy
+    build: ./
+    restart: always
+    networks:
+      - api
+      - web
+      - dashboard
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - /etc/ssl:/etc/ssl
+      - /var/run/docker.sock:/tmp/docker.sock
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
+
+networks:
+  api:
+    external:
+      name: almond_almond-network
+  web:
+    external:
+      name: almond_almond-network
+  dashboard:
+    external:
+      name: almond_almond-network
