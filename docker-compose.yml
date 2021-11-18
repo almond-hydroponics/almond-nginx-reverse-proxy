@@ -9,6 +9,7 @@ services:
       - web
       - dashboard
       - blog
+      - wordpress
     ports:
       - '80:80'
       - '443:443'
@@ -25,6 +26,9 @@ networks:
     external:
       name: almond_almond-network
   dashboard:
+    external:
+      name: almond_almond-network
+  wordpress:
     external:
       name: almond_almond-network
   blog:
