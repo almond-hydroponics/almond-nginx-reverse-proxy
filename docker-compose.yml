@@ -10,6 +10,7 @@ services:
       - dashboard
       - blog
       - wordpress
+      - influxdb
     ports:
       - '80:80'
       - '443:443'
@@ -29,6 +30,9 @@ networks:
     external:
       name: almond_almond-network
   wordpress:
+    external:
+      name: almond_almond-network
+  influxdb:
     external:
       name: almond_almond-network
   blog:
